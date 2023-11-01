@@ -1,9 +1,22 @@
 {
     "name": "thies4321/osrs-ge-api-client",
-    "type": "standard",
     "description": "Oldschool Runescape Grand Exchange api client written in PHP",
-    "homepage": "https://github.com/thies4321/osrs-ge-api-client",
     "license": "MIT",
+    "type": "standard",
+    "homepage": "https://github.com/thies4321/osrs-ge-api-client",
+    "require": {
+        "php": "^8.2",
+        "php-http/client-common": "^2.7",
+        "php-http/discovery": "^1.19",
+        "php-http/httplug": "^2.4"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.39",
+        "guzzlehttp/guzzle": "^7.8",
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^10",
+        "psy/psysh": "^0.11.22"
+    },
     "autoload": {
         "psr-4": {
             "OsrsGeApiClient\\": "src/"
@@ -14,16 +27,10 @@
             "OsrsGeApiClient\\": "tests/"
         }
     },
-    "bin": ["bin/osrs-ge-api-client"],
-    "require": {
-        "php": "^8.2",
-        "symfony/http-client": "^6.2",
-        "symfony/yaml": "^6.2",
-        "symfony/console": "^6.2"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^10",
-        "psy/psysh": "@stable",
-        "phpstan/phpstan": "^1.10"
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "php-http/discovery": true
+        }
     }
 }

@@ -1,5 +1,0 @@
-base_url: 'https://services.runescape.com/m=itemdb_oldschool/api'
-client_options:
-  defaultOptions: {  }
-  maxHostConnections: 6
-  maxPendingPushes: 50
