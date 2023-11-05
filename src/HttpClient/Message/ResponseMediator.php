@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace OsrsGeApiClient\HttpClient\Message;
 
 use OsrsGeApiClient\Exception\RuntimeException;
-use OsrsGeApiClient\HttpClient\Util\JsonArray;
+use OsrsGeApiClient\HttpClient\Util\Converter\JsonArray;
 use Psr\Http\Message\ResponseInterface;
-
 use function array_unique;
 use function count;
 use function explode;
