@@ -17,7 +17,7 @@ class Hiscores extends AbstractApi
     /**
      * @throws HttpClientException
      */
-    public function highscore(string $playerName, array $parameters = []): Hiscore
+    public function hiscore(string $playerName, array $parameters = [], string $slug = ''): Hiscore
     {
         $resolver = $this->createOptionsResolver();
         $resolver->setDefined('player')
@@ -26,7 +26,63 @@ class Hiscores extends AbstractApi
         $parameters['player'] = $playerName;
 
         return TextHiscore::decode(
-            $this->get(sprintf(self::URL, ''), $resolver->resolve($parameters))
+            $this->get(sprintf(self::URL, $slug), $resolver->resolve($parameters))
         );
+    }
+
+    /**
+     * @throws HttpClientException
+     */
+    public function ironman(string $playerName, array $parameters = []): Hiscore
+    {
+        return $this->hiscore($playerName, $parameters, '_ironman');
+    }
+
+    /**
+     * @throws HttpClientException
+     */
+    public function hardcoreIronman(string $playerName, array $parameters = []): Hiscore
+    {
+        return $this->hiscore($playerName, $parameters, '_hardcore_ironman');
+    }
+
+    /**
+     * @throws HttpClientException
+     */
+    public function ultimateIronman(string $playerName, array $parameters = []): Hiscore
+    {
+        return $this->hiscore($playerName, $parameters, '_ultimate');
+    }
+
+    /**
+     * @throws HttpClientException
+     */
+    public function deadmanMode(string $playerName, array $parameters = []): Hiscore
+    {
+        return $this->hiscore($playerName, $parameters, '_deadman');
+    }
+
+    /**
+     * @throws HttpClientException
+     */
+    public function seasonal(string $playerName, array $parameters = []): Hiscore
+    {
+        return $this->hiscore($playerName, $parameters, '_seasonal');
+    }
+
+    /**
+     * @throws HttpClientException
+     */
+    public function tournament(string $playerName, array $parameters = []): Hiscore
+    {
+        return $this->hiscore($playerName, $parameters, '_tournament');
+    }
+
+    /**
+     * @throws HttpClientException
+     */
+    public function freshStart(string $playerName, array $parameters = []): Hiscore
+    {
+        return $this->hiscore($playerName, $parameters, '_fresh_start');
     }
 }
